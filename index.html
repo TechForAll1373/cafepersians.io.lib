@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="cafepersians.io.lib — The definitive, centralized library of all official CafePersians portals, tools, and resources." />
+  <meta name="keywords" content="cafepersians.io.lib, CafePersians, Persian Nexus, Lumina, Crypto Portal, Support, Takl, Donation" />
+  <meta name="author" content="CafePersians Team" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="cafepersians.io.lib" />
+  <meta property="og:description" content="Official library of all CafePersians ecosystem links." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://techforall1373.github.io/CafePersians-Official/" />
+  <title>cafepersians.io.lib</title>
+
+  <!-- Web Manifest -->
+  <link rel="manifest" href="application/manifest+json,{
+    %22name%22:%22cafepersians.io.lib%22,
+    %22short_name%22:%22cp.lib%22,
+    %22start_url%22:%22./%22,
+    %22display%22:%22standalone%22,
+    %22background_color%22:%22%23000000%22,
+    %22theme_color%22:%22%23000814%22,
+    %22icons%22:[{
+      %22src%22:%22data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100%25' height='100%25' fill='%23000814'/%3E%3Ctext x='50%25' y='60%25' font-size='56' text-anchor='middle' fill='%2300ffcc' font-family='monospace'%3Elib%3C/text%3E%3C/svg%3E%22,
+      %22sizes%22:%22192x192%22,
+      %22type%22:%22image/svg+xml%22
+    }]
+  }" />
+
+  <style>
+    /* Auto Theme: Dark (AMOLED) by default, Light if prefers-color-scheme: light */
+    :root {
+      --bg: #000000;
+      --card: #000814;
+      --text: #ffffff;
+      --glow: #00ffcc;
+      --link: #00e0ff;
+      --accent: #00b3cc;
+      --border: rgba(0, 255, 204, 0.12);
+      --meta: rgba(255, 255, 255, 0.75);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --card: #f8f9fa;
+        --text: #1a1a1a;
+        --glow: #00a896;
+        --link: #0077b6;
+        --accent: #005f73;
+        --border: rgba(0, 119, 182, 0.2);
+        --meta: rgba(0, 0, 0, 0.65);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.2rem 1.4rem;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .branding {
+      text-align: center;
+      margin-bottom: 2.4rem;
+      max-width: 720px;
+    }
+
+    .logo {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 1.4rem;
+      filter: drop-shadow(0 0 16px var(--glow));
+      animation: float 7s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    .project-name {
+      font-size: 2.6rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--glow), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.7rem;
+      text-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    }
+
+    @media (prefers-color-scheme: light) {
+      .project-name {
+        text-shadow: 0 0 15px rgba(0, 168, 150, 0.25);
+      }
+    }
+
+    .tagline {
+      color: var(--meta);
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+
+    .enhancements {
+      background: rgba(0, 20, 30, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.3rem;
+      margin: 1.8rem auto;
+      max-width: 700px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.08);
+    }
+
+    @media (prefers-color-scheme: light) {
+      .enhancements {
+        background: rgba(0, 119, 182, 0.06);
+        box-shadow: 0 0 20px rgba(0, 119, 182, 0.1);
+      }
+    }
+
+    .enhancements h2 {
+      color: var(--glow);
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    .enhancements p {
+      font-size: 0.98rem;
+      color: var(--meta);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 940px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.2rem;
+      box-shadow: 0 12px 45px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    @media (prefers-color-scheme: light) {
+      .container {
+        box-shadow: 0 12px 45px rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, transparent, var(--glow), transparent, var(--accent));
+      z-index: -1;
+      animation: rotate 8s linear infinite;
+      filter: blur(20px);
+      opacity: 0.3;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 2.4rem;
+    }
+
+    @media (max-width: 768px) {
+      .links-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    a.link-item {
+      display: block;
+      padding: 1.05rem;
+      background: rgba(0, 20, 30, 0.65);
+      border: 1px solid rgba(0, 255, 204, 0.08);
+      border-radius: 16px;
+      color: var(--link);
+      text-decoration: none;
+      font-size: 0.99rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      word-break: break-word;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (prefers-color-scheme: light) {
+      a.link-item {
+        background: rgba(0, 119, 182, 0.08);
+        border-color: rgba(0, 119, 182, 0.2);
+        color: var(--link);
+      }
+    }
+
+    a.link-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.2), transparent);
+      transition: 0.6s;
+    }
+
+    @media (prefers-color-scheme: light) {
+      a.link-item::before {
+        background: linear-gradient(90deg, transparent, rgba(0, 168, 150, 0.2), transparent);
+      }
+    }
+
+    a.link-item:hover {
+      color: white;
+      border-color: var(--glow);
+      background: rgba(0, 30, 40, 0.9);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 22px rgba(0, 255, 204, 0.25);
+    }
+
+    @media (prefers-color-scheme: light) {
+      a.link-item:hover {
+        color: white;
+        background: rgba(0, 119, 182, 0.9);
+        box-shadow: 0 8px 22px rgba(0, 168, 150, 0.3);
+      }
+    }
+
+    a.link-item:hover::before {
+      left: 100%;
+    }
+
+    .banner-item {
+      display: block;
+      margin: 0 auto 1.3rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      max-width: 520px;
+      transition: all 0.35s ease;
+    }
+
+    .banner-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
+      border-color: var(--glow);
+    }
+
+    @media (prefers-color-scheme: light) {
+      .banner-item:hover {
+        box-shadow: 0 0 30px rgba(0, 168, 150, 0.3);
+      }
+    }
+
+    .banner-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 3.8 / 1;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <!-- Branding -->
+  <div class="branding">
+    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="var(--card)" rx="26" />
+      <text x="50" y="62" text-anchor="middle" font-size="56" fill="var(--glow)" font-family="monospace">lib</text>
+    </svg>
+    <h1 class="project-name">cafepersians.io.lib</h1>
+    <p class="tagline">The definitive, centralized library of all official CafePersians portals, tools, and resources.</p>
+  </div>
+
+  <!-- Enhancement Suggestions -->
+  <div class="enhancements">
+    <h2>✨ Expand Your Experience</h2>
+    <p>Integrate <strong>WebSocket API</strong> for real-time sync, <strong>Service Worker</strong> for offline resilience, or extend with <strong>modular micro-frontends</strong>.</p>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="links-grid">
+      <!-- All links from GitHub.txt (with fixed URL) -->
+      <a href="https://techforall1373.github.io/Cafepersians.io/" class="link-item" target="_blank" rel="noopener">Cafepersians.io</a>
+      <a href="https://techforall1373.github.io/CafePersians/" class="link-item" target="_blank" rel="noopener">CafePersians</a>
+      <a href="https://techforall1373.github.io/cafe-persians-password-gen/" class="link-item" target="_blank" rel="noopener">Password Generator</a>
+      <a href="https://techforall1373.github.io/PersiaNexus/" class="link-item" target="_blank" rel="noopener">PersiaNexus</a>
+      <a href="https://techforall1373.github.io/CafePersians-Official/" class="link-item" target="_blank" rel="noopener">CafePersians-Official</a>
+      <a href="https://techforall1373.github.io/CafePersians-Portal/" class="link-item" target="_blank" rel="noopener">CafePersians-Portal</a>
+      <a href="https://techforall1373.github.io/Nexus-of-Lumina/" class="link-item" target="_blank" rel="noopener">Nexus-of-Lumina</a>
+      <a href="https://techforall1373.github.io/lumina-crypto-portal/" class="link-item" target="_blank" rel="noopener">Lumina Crypto Portal</a>
+      <a href="https://techforall1373.github.io/cafepersian-support-portal/" class="link-item" target="_blank" rel="noopener">Support Portal</a>
+      <a href="https://techforall1373.github.io/persian-digital-nexus/" class="link-item" target="_blank" rel="noopener">Persian Digital Nexus</a>
+      <a href="https://whatsapp.com/channel/0029VbBA6O26RGJCCAPcpM3H" class="link-item" target="_blank" rel="noopener">WhatsApp Channel 1</a>
+      <a href="https://whatsapp.com/channel/0029VazXKZPL2ATzkbqfge2G" class="link-item" target="_blank" rel="noopener">WhatsApp Channel 2</a>
+      <a href="https://takl.ink/Cafepersians.io/" class="link-item" target="_blank" rel="noopener">Takl: Cafepersians.io</a>
+      <a href="https://takl.ink/HamNava/" class="link-item" target="_blank" rel="noopener">Takl: HamNava</a>
+      <a href="https://takl.ink/Workstation/" class="link-item" target="_blank" rel="noopener">Takl: Workstation</a>
+      <a href="https://takl.ink/Charisman/" class="link-item" target="_blank" rel="noopener">Takl: Charisman</a>
+      <a href="https://takl.ink/azkiSeller/" class="link-item" target="_blank" rel="noopener">Takl: azkiSeller</a>
+      <a href="https://takl.ink/Cafepersian/" class="link-item" target="_blank" rel="noopener">Takl: Cafepersian</a>
+      <a href="https://takl.ink/CafePersia/" class="link-item" target="_blank" rel="noopener">Takl: CafePersia</a>
+      <a href="https://takl.ink/cafepersians.Support/" class="link-item" target="_blank" rel="noopener">Takl: Support</a>
+      <a href="https://takl.ink/cafepersians.git/" class="link-item" target="_blank" rel="noopener">Takl: GitHub</a>
+      <a href="https://donito.me/cafepersians" class="link-item" target="_blank" rel="noopener">Donito.me</a>
+      <a href="https://paylink.payment4.com/en/cafepersians/a43a45c4-e7b6-42f0-bcf8-8f850cd3b239" class="link-item" target="_blank" rel="noopener">Payment Link 1</a>
+      <a href="https://paylink.payment4.com/en/cafepersians/01e9f9b6-590f-44e9-874f-7d5a5a50355d" class="link-item" target="_blank" rel="noopener">Payment Link 2</a>
+      <a href="http://www.coffeete.ir/Cafepersians" class="link-item" target="_blank" rel="noopener">coffeete.ir/Cafepersians</a>
+      <a href="https://hamibash.com/cafepersians" class="link-item" target="_blank" rel="noopener">hamibash.com</a>
+    </div>
+
+    <!-- Banners — parsed as real HTML -->
+    <a href="https://www.coffeebede.com/cafepersians.io" class="banner-item" target="_blank" rel="noopener">
+      <img src="https://coffeebede.ir/DashboardTemplateV2/app-assets/images/banner/default-yellow.svg" alt="CoffeeBede Banner" />
+    </a>
+
+    <a href="http://www.coffeete.ir/Cafepersians" class="banner-item" target="_blank" rel="noopener">
+      <img src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" alt="Coffeete Button" />
+    </a>
+  </div>
+
+  <script>
+    // === Auto Theme: Sync CSS vars with system preference ===
+    const updateTheme = () => {
+      document.documentElement.style.setProperty('--is-dark', 
+        window.matchMedia('(prefers-color-scheme: dark)').matches ? '1' : '0'
+      );
+    };
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+    updateTheme(); // initial
+
+    // === PWA: Real Service Worker ===
+    if ('serviceWorker' in navigator) {
+      const swCode = `
+        const CACHE = 'cafepersians.io.lib-v5';
+        self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./']))));
+        self.addEventListener('fetch', e => {
+          if (e.request.method !== 'GET') return;
+          e.respondWith(
+            caches.match(e.request).then(hit => hit || fetch(e.request).catch(() => caches.match('./')))
+          );
+        });
+      `;
+      const blob = new Blob([swCode], { type: 'application/javascript' });
+      const url = URL.createObjectURL(blob);
+      navigator.serviceWorker.register(url).catch(() => {});
+    }
+
+    // === Accessibility ===
+    document.querySelectorAll('a').forEach(a => {
+      a.addEventListener('focus', e => e.target.style.outline = `2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--glow').trim()}`);
+      a.addEventListener('blur', e => e.target.style.outline = '');
+    });
+  </script>
+</body>
+</html>
